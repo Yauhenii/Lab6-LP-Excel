@@ -20,6 +20,9 @@ public class View extends JFrame {
     JPanel mainPanel;
     JScrollPane scrollPane;
     JTable table;
+    JMenuBar menuBar;
+    JMenu menuFormat;
+    JMenuItem menuItemSetFormat;
 
     View(Model model){
         //main panel
@@ -36,15 +39,14 @@ public class View extends JFrame {
         };
         table.setModel(model);
         table.setFillsViewportHeight(true);
-        //set renderer and editor for columns
-        TextTableCellRenderer renderer=new TextTableCellRenderer();
-        TextTableCellEditor editor=new TextTableCellEditor();
-        DefaultTableColumnModel columnModel=(DefaultTableColumnModel)table.getColumnModel();
-        for(int i=1;i<columnModel.getColumnCount();i++){
-            columnModel.getColumn(i).setCellRenderer(renderer);
-            columnModel.getColumn(i).setCellEditor(editor);
-        }
         table.setRowHeight(60);
+        //menu
+        menuBar=new JMenuBar();
+        menuFormat=new JMenu("Date format");
+        menuItemSetFormat=new JMenuItem("Set date format...");
+        menuFormat.add(menuItemSetFormat);
+        menuBar.add(menuFormat);
+        setJMenuBar(menuBar);
         //
         //scroll pane
         scrollPane= new JScrollPane(table);

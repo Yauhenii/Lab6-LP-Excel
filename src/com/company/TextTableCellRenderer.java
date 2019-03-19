@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class TextTableCellRenderer extends DefaultTableCellRenderer {
 
-    public static final String DEFAULT_DATE_FORMAT="yyyy-MM-dd";
+    public static final String DEFAULT_DATE_FORMAT="yyyy.MM.dd";
 
     private Font font = new Font("helvitica", Font.BOLD, 18);
     private DateFormat dateFormat=new SimpleDateFormat(DEFAULT_DATE_FORMAT);
