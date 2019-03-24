@@ -49,7 +49,9 @@ public class View extends JFrame {
         setJMenuBar(menuBar);
         //
         //scroll pane
-        scrollPane= new JScrollPane(table);
+        scrollPane= new JScrollPane(table,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         //window
         mainPanel.add(scrollPane,BorderLayout.CENTER);
         setContentPane(mainPanel);
