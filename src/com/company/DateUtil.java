@@ -34,6 +34,7 @@ public class DateUtil {
         }
     }
 
+
     private static DateFormat dateFormat=new SimpleDateFormat(DEFAULT_DATE_FORMAT);
 
     public static String format(Date date){

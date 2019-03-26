@@ -34,9 +34,9 @@ public class TextTableCellRenderer extends DefaultTableCellRenderer {
                 column);
         label.setHorizontalTextPosition(JLabel.RIGHT);
         label.setFont(font);
-        if(value instanceof Date) {
-            Date date = (Date) value;
-            label.setText(dateFormat.format(date));
+        if(value instanceof Formula) {
+            Formula formula = (Formula) value;
+            label.setText(formula.getShortFormulaString());
         }
         else{
             label.setText("");

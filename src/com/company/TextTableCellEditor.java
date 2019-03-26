@@ -19,28 +19,22 @@ public class TextTableCellEditor extends AbstractCellEditor implements TableCell
                                                  boolean isSelected,
                                                  int row,
                                                  int column){
-        if(value instanceof Date) {
-            Date date = (Date) value;
-            ((JTextField) textField).setText(DateUtil.format(date));
+        if(value instanceof Formula) {
+            Formula formula = (Formula) value;
+            ((JTextField) textField).setText(formula.getFormulaString());
         } else{
             ((JTextField) textField).setText("");
         }
         return textField;
     }
     public Object getCellEditorValue() {
-
         String value = ((JTextField) textField).getText();
-
-        if(DateUtil.isDate(value)){
-            return DateUtil.parse(value);
-        } else if(DateUtil.isDatePlusConst(value)){
-            String[] values = value.split("[=.+]");
-            String dateString=DateUtil.formDateString(values[1],values[2],values[3]);
-            Date date=(Date)DateUtil.parse(dateString);
-            date=DateUtil.addDays(date,Integer.parseInt(values[4]));
-            return date;
+        if(FormulaUtil.isDate(value)){
+            return FormulaUtil.cmpAsDate(value);
+        } else if(FormulaUtil.isOpPlusConst(value)){
+            return FormulaUtil.cmpAsCellPlusConst(value);
         }
-        return null;
+        return "";
     }
 }
 

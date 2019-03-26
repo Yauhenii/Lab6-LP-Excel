@@ -1,16 +1,8 @@
 package com.company;
 
-import com.sun.codemodel.internal.JOp;
-
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableColumnModel;
-import javax.swing.table.TableCellEditor;
+import javax.swing.event.ChangeEvent;
 import java.awt.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class View extends JFrame {
 
