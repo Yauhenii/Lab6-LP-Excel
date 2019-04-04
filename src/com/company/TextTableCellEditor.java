@@ -3,13 +3,10 @@ package com.company;
 import javax.swing.*;
 import javax.swing.table.TableCellEditor;
 import java.awt.*;
-import java.text.ParseException;
-import java.util.Date;
 
 public class TextTableCellEditor extends AbstractCellEditor implements TableCellEditor {
 
     private Component textField;
-
     TextTableCellEditor(){
         textField = new JTextField();
     }
@@ -28,11 +25,27 @@ public class TextTableCellEditor extends AbstractCellEditor implements TableCell
         return textField;
     }
     public Object getCellEditorValue() {
-        String value = ((JTextField) textField).getText();
-        if(FormulaUtil.isDate(value)){
-            return FormulaUtil.cmpAsDate(value);
-        } else if(FormulaUtil.isOpPlusConst(value)){
-            return FormulaUtil.cmpAsCellPlusConst(value);
+        String string = ((JTextField) textField).getText();
+        if(FormulaUtil.isDate(string)){
+            return FormulaUtil.cmpAsDate(string);
+        }
+        else if(FormulaUtil.isDatePlusConst(string)) {
+            return FormulaUtil.cmpAsDatePlusConst(string);
+        }
+        else if(FormulaUtil.isDateMinConst(string)) {
+            return FormulaUtil.cmpAsDateMinConst(string);
+        }
+        else if(FormulaUtil.isCellPlusConst(string)) {
+            return FormulaUtil.cmpAsCellPlusConst(string);
+        }
+        else if(FormulaUtil.isCellMinConst(string)) {
+            return FormulaUtil.cmpAsCellMinConst(string);
+        }
+        else if(FormulaUtil.isMin(string)) {
+            return FormulaUtil.cmpAsMin(string);
+        }
+        else if(FormulaUtil.isMax(string)) {
+            return FormulaUtil.cmpAsMax(string);
         }
         return "";
     }

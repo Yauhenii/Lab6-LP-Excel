@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class View extends JFrame {
 
-    public static final int SCREEN_WIDTH=500;
-    public static final int SCREEN_HEIGHT=400;
+    public static final int SCREEN_WIDTH=900;
+    public static final int SCREEN_HEIGHT=600;
 
     JPanel mainPanel;
     JScrollPane scrollPane;

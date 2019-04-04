@@ -1,16 +1,14 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Formula {
 
-    enum Type{DATE,DATE_P_C,DATE_M_C,CELL_P_C,CELL_M_C};
+    enum Type{DATE,DATE_P_C,DATE_M_C,CELL_P_C,CELL_M_C,MIN,MAX};
 
 
     private String shortFormulaString;
     private String formulaString;
-    private String parentAdress;
     private Type formulaType;
 
     public ArrayList<Cell> childCells;
@@ -33,14 +31,6 @@ public class Formula {
 
     public void setFormulaString(String formulaString) {
         this.formulaString = formulaString;
-    }
-
-    public String getParentAdress() {
-        return parentAdress;
-    }
-
-    public void setParentAdress(String parentAdress) {
-        this.parentAdress = parentAdress;
     }
 
     public Type getFormulaType() {
